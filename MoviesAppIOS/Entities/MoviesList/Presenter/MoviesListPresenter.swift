@@ -9,6 +9,7 @@
 import Foundation
 
 class MoviesListPresenter: MoviesListPresenterProtocol {
+
     
     func fetchMoviesList() {
         <#code#>
