@@ -11,7 +11,14 @@ import Foundation
 struct ResultsItems: Codable {
     let overview: String
     let title: String
-    var poster_path: String?
-    var backdrop_path: String?
+    var posterPath: String?
+    var backdropPath: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case overview = "overview"
+        case title = "title"
+        case posterPath = "poster_path"
+        case backdropPath = "backdrop_path"
+    }
 
 }

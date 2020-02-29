@@ -20,7 +20,7 @@ class ViewController: UIViewController, MoviesListViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.presenter = MoviesListPresenter(view: self)
+        setPresenter()
         
         self.presenter?.fetchMoviesList()
     }
@@ -28,6 +28,10 @@ class ViewController: UIViewController, MoviesListViewProtocol {
     func successMoviesList(movies: [ResultsItems]) {
         self.movies = movies
         self.tableView.reloadData()
+    }
+    
+    func setPresenter() {
+        self.presenter = MoviesListPresenter(view: self)
     }
 
 }
@@ -40,7 +44,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellName, for: indexPath) as! CustomTableViewCell
         let movie = self.movies[indexPath.row]
-        let imageUrl = Constants.URL_IMAGE + movie.poster_path!
+        let imageUrl = Constants.URL_IMAGE + movie.posterPath!
         
         cell.imageItem.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: placeHolderName))
         

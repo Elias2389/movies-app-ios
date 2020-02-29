@@ -30,5 +30,4 @@ class MoviesListInteractor: MoviesListInteractorProtocol {
         self.presenter?.successMoviesList(movies: movies)
     }
     
-    
 }
