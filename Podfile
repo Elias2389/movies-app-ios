@@ -6,5 +6,7 @@ target 'MoviesAppIOS' do
 
   pod 'Alamofire', '~> 5.0'
   pod 'SDWebImage', '~> 5.0'
+  pod "ViewAnimator"
+  pod 'Hero'
 
 end

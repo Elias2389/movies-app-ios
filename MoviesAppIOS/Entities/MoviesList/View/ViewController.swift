@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SDWebImage
+import ViewAnimator
 
 class ViewController: UIViewController, MoviesListViewProtocol {
     @IBOutlet weak var tableView: UITableView!
@@ -20,9 +21,16 @@ class ViewController: UIViewController, MoviesListViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setPresenter()
+        setupAnimation()
         
         self.presenter?.fetchMoviesList()
+    }
+    
+    func setupAnimation() {
+        let animations = AnimationType.from(direction: .bottom, offset: 30.0)
+        self.tableView.animate(animations: [animations], duration: 4)
     }
     
     func successMoviesList(movies: [ResultsItems]) {

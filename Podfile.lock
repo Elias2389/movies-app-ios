@@ -1,22 +1,30 @@
 PODS:
   - Alamofire (5.0.2)
+  - Hero (1.5.0)
   - SDWebImage (5.5.2):
     - SDWebImage/Core (= 5.5.2)
   - SDWebImage/Core (5.5.2)
+  - ViewAnimator (2.7.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0)
+  - Hero
   - SDWebImage (~> 5.0)
+  - ViewAnimator
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Hero
     - SDWebImage
+    - ViewAnimator
 
 SPEC CHECKSUMS:
   Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
+  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
+  ViewAnimator: 5af1c6f3b310f012bf081259c43717aa54fbae73
 
-PODFILE CHECKSUM: a1f351abcb0412919d330ee9968e8d670e7aad2e
+PODFILE CHECKSUM: 86afddefb9d252c0c818dc09bb1c5d746cf0f36f
 
 COCOAPODS: 1.8.4
