@@ -10,17 +10,24 @@ import UIKit
 import Alamofire
 import SDWebImage
 
-class ViewController: UIViewController {
-    
+class ViewController: UIViewController, MoviesListViewProtocol {
     @IBOutlet weak var tableView: UITableView!
-    
+    var presenter: MoviesListPresenterProtocol?
     var movies: [ResultsItems] = []
+    let cellName: String = "cell"
+    let placeHolderName: String = "PlaceHolder"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.presenter = MoviesListPresenter(view: self)
         
-        fetchData()
-        
+        self.presenter?.fetchMoviesList()
+    }
+    
+    func successMoviesList(movies: [ResultsItems]) {
+        self.movies = movies
+        self.tableView.reloadData()
     }
 
 }
@@ -31,32 +38,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellName, for: indexPath) as! CustomTableViewCell
         let movie = self.movies[indexPath.row]
-        let imageUrl = "https://image.tmdb.org/t/p/w500/"+movie.poster_path!
+        let imageUrl = Constants.URL_IMAGE + movie.poster_path!
         
-        cell.imageItem.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "PlaceHolder"))
+        cell.imageItem.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: placeHolderName))
         
         cell.titleItem.text = movie.title
 
         return cell
     }
     
-
-    
 }
-
-extension ViewController {
-    func fetchData() {
-        let url: String = "https://api.themoviedb.org/3/movie/popular?api_key=ed3cabd489c6883104d68f3776120f03&language=en-US&page=1"
-        
-        AF.request(url).validate().responseDecodable(of: Results.self) { (response) in
-            debugPrint(response)
-            guard let items = response.value else { return }
-            self.movies = items.results
-            self.tableView.reloadData()
-        }
-    }
-}
-

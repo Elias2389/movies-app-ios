@@ -9,15 +9,20 @@
 import Foundation
 
 class MoviesListPresenter: MoviesListPresenterProtocol {
-
+    
+    var view: MoviesListViewProtocol?
+    var interactor: MoviesListInteractorProtocol?
+    
+    init(view: MoviesListViewProtocol) {
+        self.view = view
+        self.interactor = MoviesListInteractor(presenter: self)
+    }
     
     func fetchMoviesList() {
-        <#code#>
+        self.interactor?.fetchMoviesList()
     }
     
-    func successMoviesList() {
-        <#code#>
+    func successMoviesList(movies: [ResultsItems]) {
+        self.view?.successMoviesList(movies: movies)
     }
-    
-
 }

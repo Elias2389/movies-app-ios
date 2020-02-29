@@ -1,5 +1,5 @@
 //
-//  MoviesListViewProtocol.swift
+//  MoviesListInteractorProtocol.swift
 //  MoviesAppIOS
 //
 //  Created by Andres Rivas on 28/02/2020.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol MoviesListViewProtocol {
+protocol MoviesListInteractorProtocol {
+    func fetchMoviesList()
     func successMoviesList(movies: [ResultsItems])
 }

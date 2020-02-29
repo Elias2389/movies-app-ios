@@ -10,5 +10,5 @@ import Foundation
 
 protocol MoviesListPresenterProtocol {
     func fetchMoviesList()
-    func successMoviesList()
+    func successMoviesList(movies: [ResultsItems])
 }
