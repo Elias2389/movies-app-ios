@@ -25,8 +25,7 @@ class DetailMovieController: UIViewController {
     func setupViews() {
         self.textDetailMovie.text = movie?.overview
         
-        let imageUrl = Constants.URL_IMAGE + (movie?.backdropPath!)!
-        self.imageMovie.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: Constants.PLACE_HOLDER_IMAGE))
+        self.imageMovie.sd_setImage(with: URL(string: ImageUtils.getImageUrl(resource: movie!.backdropPath!)), placeholderImage: UIImage(named: Constants.PLACE_HOLDER_IMAGE))
     }
     
     func setupAnimation() {

@@ -17,8 +17,8 @@ class ViewController: UIViewController, MoviesListViewProtocol {
     var movies: [ResultsItems] = []
     var selectedMovie: ResultsItems?
     let cellName: String = "cell"
+    let identifier: String = "detailMovie"
     @IBOutlet weak var imageItem: UIImageView!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +32,7 @@ class ViewController: UIViewController, MoviesListViewProtocol {
     }
     
     func setupAnimation() {
-        let animations = AnimationType.from(direction: .bottom, offset: 30.0)
-        self.tableView.animate(animations: [animations], duration: 4)
+        self.tableView.animate(animations: [AnimationUtils.getdefaultAnimationType()], duration: 4)
     }
     
     func successMoviesList(movies: [ResultsItems]) {
@@ -46,7 +45,7 @@ class ViewController: UIViewController, MoviesListViewProtocol {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailMovie" {
+        if segue.identifier == identifier {
             let movieDetail = segue.destination as! DetailMovieController
             movieDetail.movie = selectedMovie
         }
@@ -61,9 +60,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellName, for: indexPath) as! CustomTableViewCell
         let movie = self.movies[indexPath.row]
-        let imageUrl = Constants.URL_IMAGE + movie.posterPath!
         
-        cell.imageItem.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: Constants.PLACE_HOLDER_IMAGE))
+        cell.imageItem.sd_setImage(with: URL(string: ImageUtils.getImageUrl(resource: movie.posterPath!)), placeholderImage: UIImage(named: Constants.PLACE_HOLDER_IMAGE))
         
         cell.titleItem.text = movie.title
 
@@ -76,7 +74,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "detailMovie", sender: self)
+        self.performSegue(withIdentifier: identifier, sender: self)
     }
-    
 }
