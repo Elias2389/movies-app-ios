@@ -19,12 +19,10 @@ class ViewController: UIViewController, MoviesListViewProtocol {
     let cellName: String = "cell"
     @IBOutlet weak var imageItem: UIImageView!
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setup()
-        
     }
     
     func setup() {

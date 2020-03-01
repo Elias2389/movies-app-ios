@@ -25,6 +25,7 @@
 		ACCE1EF6240AB3D3006E8111 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ACCE1EF5240AB3D3006E8111 /* SDWebImageMapKit */; };
 		ACCE1EF9240AB419006E8111 /* ViewAnimator in Frameworks */ = {isa = PBXBuildFile; productRef = ACCE1EF8240AB419006E8111 /* ViewAnimator */; };
 		ACCE1EFC240BF88D006E8111 /* DetailMovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCE1EFB240BF88D006E8111 /* DetailMovieController.swift */; };
+		ACCE1EFF240C0AE7006E8111 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = ACCE1EFE240C0AE7006E8111 /* Hero */; };
 		ACD0FEEE2409A2D0009E8615 /* MoviesListInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD0FEED2409A2D0009E8615 /* MoviesListInteractorProtocol.swift */; };
 		ACD0FEF02409A2EB009E8615 /* MoviesListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD0FEEF2409A2EB009E8615 /* MoviesListInteractor.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 				ACCE1EF4240AB3D3006E8111 /* SDWebImage in Frameworks */,
 				ACCE1EF6240AB3D3006E8111 /* SDWebImageMapKit in Frameworks */,
 				ACCE1EF9240AB419006E8111 /* ViewAnimator in Frameworks */,
+				ACCE1EFF240C0AE7006E8111 /* Hero in Frameworks */,
 				ACCE1EF1240AB387006E8111 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +232,7 @@
 				ACCE1EF3240AB3D3006E8111 /* SDWebImage */,
 				ACCE1EF5240AB3D3006E8111 /* SDWebImageMapKit */,
 				ACCE1EF8240AB419006E8111 /* ViewAnimator */,
+				ACCE1EFE240C0AE7006E8111 /* Hero */,
 			);
 			productName = MoviesAppIOS;
 			productReference = AC08043C24059D2E005B8738 /* MoviesAppIOS.app */;
@@ -263,6 +266,7 @@
 				ACCE1EEF240AB387006E8111 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				ACCE1EF2240AB3D3006E8111 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				ACCE1EF7240AB419006E8111 /* XCRemoteSwiftPackageReference "ViewAnimator" */,
+				ACCE1EFD240C0AE7006E8111 /* XCRemoteSwiftPackageReference "Hero" */,
 			);
 			productRefGroup = AC08043D24059D2E005B8738 /* Products */;
 			projectDirPath = "";
@@ -527,6 +531,14 @@
 				minimumVersion = 2.7.0;
 			};
 		};
+		ACCE1EFD240C0AE7006E8111 /* XCRemoteSwiftPackageReference "Hero" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/HeroTransitions/Hero";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -549,6 +561,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = ACCE1EF7240AB419006E8111 /* XCRemoteSwiftPackageReference "ViewAnimator" */;
 			productName = ViewAnimator;
+		};
+		ACCE1EFE240C0AE7006E8111 /* Hero */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ACCE1EFD240C0AE7006E8111 /* XCRemoteSwiftPackageReference "Hero" */;
+			productName = Hero;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
