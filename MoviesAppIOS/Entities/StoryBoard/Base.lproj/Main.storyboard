@@ -73,11 +73,60 @@
                     <navigationItem key="navigationItem" title="Movies List" id="l4U-xE-vZt"/>
                     <connections>
                         <outlet property="tableView" destination="Kav-66-gMm" id="sZ7-5b-ErF"/>
+                        <segue destination="KFR-Rh-6Sl" kind="show" identifier="detailMovie" id="sGn-gU-Jmc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="112.5"/>
+        </scene>
+        <!--Movie Detail-->
+        <scene sceneID="tMS-Rv-Z5k">
+            <objects>
+                <viewController id="KFR-Rh-6Sl" customClass="DetailMovieController" customModule="MoviesAppIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zYk-L1-VfG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="f2E-EK-DKd">
+                                <rect key="frame" x="0.0" y="390" width="414" height="472"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4sL-Ty-71R">
+                                <rect key="frame" x="0.0" y="140" width="414" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="Baa-Eo-hNz"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hNa-5c-JZV" firstAttribute="trailing" secondItem="f2E-EK-DKd" secondAttribute="trailing" id="Cta-PL-aMu"/>
+                            <constraint firstItem="f2E-EK-DKd" firstAttribute="top" secondItem="4sL-Ty-71R" secondAttribute="bottom" id="DIs-qk-cep"/>
+                            <constraint firstItem="hNa-5c-JZV" firstAttribute="trailing" secondItem="4sL-Ty-71R" secondAttribute="trailing" id="Pq2-Rj-omA"/>
+                            <constraint firstItem="4sL-Ty-71R" firstAttribute="top" secondItem="hNa-5c-JZV" secondAttribute="top" id="Ucb-YQ-aDx"/>
+                            <constraint firstItem="f2E-EK-DKd" firstAttribute="leading" secondItem="hNa-5c-JZV" secondAttribute="leading" id="anF-VJ-ue8"/>
+                            <constraint firstItem="hNa-5c-JZV" firstAttribute="bottom" secondItem="f2E-EK-DKd" secondAttribute="bottom" id="bem-2I-Vx4"/>
+                            <constraint firstItem="f2E-EK-DKd" firstAttribute="bottom" secondItem="hNa-5c-JZV" secondAttribute="bottom" id="dmW-OR-pSu"/>
+                            <constraint firstItem="f2E-EK-DKd" firstAttribute="trailing" secondItem="hNa-5c-JZV" secondAttribute="trailing" id="iDU-yc-Rsh"/>
+                            <constraint firstItem="4sL-Ty-71R" firstAttribute="leading" secondItem="hNa-5c-JZV" secondAttribute="leading" id="j5O-zc-1jw"/>
+                            <constraint firstItem="f2E-EK-DKd" firstAttribute="leading" secondItem="hNa-5c-JZV" secondAttribute="leading" id="kUK-Mx-hYm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hNa-5c-JZV"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Movie Detail" id="EA9-bm-Bp4"/>
+                    <connections>
+                        <outlet property="imageMovie" destination="4sL-Ty-71R" id="H9j-Nj-yJU"/>
+                        <outlet property="textDetailMovie" destination="f2E-EK-DKd" id="4Le-YX-yK4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7OP-Gm-Uqt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1897" y="113"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bXU-aZ-gXF">

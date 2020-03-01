@@ -15,16 +15,21 @@ class ViewController: UIViewController, MoviesListViewProtocol {
     @IBOutlet weak var tableView: UITableView!
     var presenter: MoviesListPresenterProtocol?
     var movies: [ResultsItems] = []
+    var selectedMovie: ResultsItems?
     let cellName: String = "cell"
-    let placeHolderName: String = "PlaceHolder"
+    @IBOutlet weak var imageItem: UIImageView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setup()
+        
+    }
+    
+    func setup() {
         setPresenter()
         setupAnimation()
-        
         self.presenter?.fetchMoviesList()
     }
     
@@ -41,7 +46,13 @@ class ViewController: UIViewController, MoviesListViewProtocol {
     func setPresenter() {
         self.presenter = MoviesListPresenter(view: self)
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailMovie" {
+            let movieDetail = segue.destination as! DetailMovieController
+            movieDetail.movie = selectedMovie
+        }
+    }
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
@@ -54,11 +65,20 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let movie = self.movies[indexPath.row]
         let imageUrl = Constants.URL_IMAGE + movie.posterPath!
         
-        cell.imageItem.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: placeHolderName))
+        cell.imageItem.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: Constants.PLACE_HOLDER_IMAGE))
         
         cell.titleItem.text = movie.title
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        selectedMovie = movies[indexPath.row]
+        return indexPath
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "detailMovie", sender: self)
     }
     
 }

@@ -10,5 +10,7 @@ import Foundation
 
 struct Constants {
     static let URL_BASE: String = "https://api.themoviedb.org/3/movie/popular?api_key=ed3cabd489c6883104d68f3776120f03&language=en-US&page=1"
+    
     static let URL_IMAGE = "https://image.tmdb.org/t/p/w500/"
+    static let PLACE_HOLDER_IMAGE = "PlaceHolder"
 }
